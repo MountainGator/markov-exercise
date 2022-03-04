@@ -8,16 +8,27 @@ const NewMarkovForm = ({ formData, setFormData, makeMarkov }) => {
     }
 
     return (
-        <form>
-            <label htmlFor="starting-text" onSubmit={makeMarkov}>Start your markov</label>
+        <form onSubmit={makeMarkov}>
+            <label htmlFor="start" >Sentence</label>
             <input 
                 type="text"
-                name="name"
+                name="start"
                 placeholder="markov-ify me"
-                value={formData.name}
+                value={formData.start}
                 onChange={handleChange}
                 />
-                <button type="submit">Markov!</button>
+
+            <label htmlFor="numb">Number of Markovs</label>
+            <input 
+                type="number"
+                name="numb"
+                value={formData.numb}
+                onChange={handleChange}
+                min={20}
+                max={150}
+                />
+
+            <button type="submit">Markov!</button>
         </form>
     )
 }
